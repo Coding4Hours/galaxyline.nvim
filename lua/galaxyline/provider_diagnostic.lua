@@ -26,7 +26,7 @@ end
 function M.get_diagnostic_error()
   if vim.fn.exists('*coc#rpc#start_server') == 1 then
     return get_coc_diagnostic('error')
-  elseif not vim.tbl_isempty(lsp.buf_get_clients(0)) then
+  elseif not vim.tbl_isempty(lsp.get_clients(0)) then
     return get_nvim_lsp_diagnostic(diagnostic.severity.ERROR)
   end
   return ''
